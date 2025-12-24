@@ -10,8 +10,8 @@
 constexpr unsigned int START_ADDRESS = 0x200;
 constexpr unsigned int FONTSET_SIZE = 80;
 constexpr unsigned int FONTSET_START_ADDRESS = 0x50;
-constexpr unsigned int VIDEO_WIDTH = 640;
-constexpr unsigned int VIDEO_HEIGHT = 480;
+constexpr unsigned int VIDEO_WIDTH = 64;
+constexpr unsigned int VIDEO_HEIGHT = 32;
 
 /*---------------------------------------------------------------------------*/
 
@@ -44,7 +44,7 @@ Chip8::Chip8()
 
   for (unsigned int i = 0; i < FONTSET_SIZE; ++i)
   {
-    memory[FONTSET_START_ADDRESS * i] = fontset[i];
+		memory[FONTSET_START_ADDRESS + i] = fontset[i];
   }
 
   randByte = std::uniform_int_distribution<uint8_t>(0, 255U);

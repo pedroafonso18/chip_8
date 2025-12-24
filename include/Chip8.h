@@ -14,8 +14,7 @@ class Chip8
   public:
     
     Chip8();
-    ~Chip8();
-    
+        
     void Cycle();
 
     void LoadRom(
@@ -39,7 +38,7 @@ class Chip8
     Chip8Func table8[0xE + 1];
     Chip8Func tableE[0xE + 1];
     Chip8Func tableF[0x65 + 1];
-    long randGen;
+    std::mt19937 randGen;
     std::uniform_int_distribution<uint8_t> randByte;
 
     //OPCODES

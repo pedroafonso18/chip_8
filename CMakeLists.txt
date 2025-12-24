@@ -6,7 +6,7 @@ project(
 )
 
 add_executable(
-	Chip-8
-	include/Chip-8
+	Chip-8	
+  src/Chip-8.cpp
 )
 

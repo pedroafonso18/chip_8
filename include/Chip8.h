@@ -2,6 +2,7 @@
 #define INCLUDE_CHIP8_H
 
 #include <cstdint>
+#include <chrono>
 
 class Chip8
 {
@@ -13,8 +14,7 @@ class Chip8
     void LoadRom(
         char const* fileName
     );
-
-    // These are the variables, my beloved;
+ 
     uint8_t registers[16]{};
     uint8_t memory[4096]{};
     uint16_t index{};
@@ -26,6 +26,9 @@ class Chip8
     uint8_t keyPad[16]{};
     uint32_t video[64 * 32]{};
     uint16_t opcode;
+    std::chrono::system_clock rand;
+    uint8_t randByte;
+
 };
 
 #endif

@@ -5,8 +5,13 @@ project(
 	LANGUAGES CXX
 )
 
+find_package(SDL2 REQUIRED)
+
 add_executable(
 	Chip-8	
-  src/Chip-8.cpp
+  src/*.cpp
+	include/*.h
 )
+
+target_link_libraries(Chip-8 SDL2::SDL2)
 

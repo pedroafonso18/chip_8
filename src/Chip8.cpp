@@ -41,7 +41,7 @@ Chip8::Chip8()
   : randGen(std::chrono::system_clock::now().time_since_epoch().count())
 {
   pc = START_ADDRESS;
-
+	InitTables();
   for (unsigned int i = 0; i < FONTSET_SIZE; ++i)
   {
 		memory[FONTSET_START_ADDRESS + i] = fontset[i];
@@ -58,7 +58,7 @@ void Chip8::Cycle()
 
   pc += 2;
 
-  ((*this).*(table[(opcode & 0xF000u) >> 12u]))();
+  ((this)->*(table[(opcode & 0xF000u) >> 12u]))();
 
   if (delayTimer > 0)
   {
@@ -518,7 +518,7 @@ void Chip8::OP_Fx0A()
 
   bool valueDetected = false;
 
-  for (int i = 0; i < 16; ++i) {
+  for (int i = 0; i < 15; ++i) {
     if (keyPad[i])
     {
       registers[Vx] = i;

@@ -3,8 +3,8 @@
 #include "../include/Chip8.h"
 #include "../include/Platform.h"
 
-#define VIDEO_WIDTH 640
-#define VIDEO_HEIGHT 480
+#define VIDEO_WIDTH 64
+#define VIDEO_HEIGHT 32
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	Chip8 chip8;
 	chip8.LoadRom(romFilename);
 
-	int videoPitch = sizeof(chip8.video[0]) * VIDEO_WIDTH;
+	int videoPitch = sizeof(chip8.video[0]) ;
 
 	auto lastCycleTime = std::chrono::high_resolution_clock::now();
 	bool quit = false;
